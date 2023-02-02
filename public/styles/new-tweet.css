@@ -1,0 +1,145 @@
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.new-tweet-form{
+    margin: 0 auto;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-tweet{
+  background-color: #4056A1;
+  color: #FFFFFF;
+  font-family: 'Bungee', 'sans-serif';
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  
+}
+
+section{
+  width: 100%;
+}
+
+.humming{
+  font-weight: bold;
+  
+  justify-content: flex-end;
+  flex-direction: column;
+  
+}
+
+.counter{
+  font-family: 'Bungee', 'sans-serif';
+  display: flex;
+}
+
+.text-area{
+  width: 100%;
+  background-color: transparent;
+  resize: none;
+  box-shadow: none;
+  border: 0;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none; 
+  border-bottom: solid;
+  
+}
+
+.div-btn-counter{
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-top: .7em;
+
+}
+ 
+
+.article-tweet-posted{
+  border: solid;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 1em;
+  
+}
+
+.article-tweet-posted:hover{
+  box-shadow: 3px 3px 3px 2px gray;
+
+}
+
+.article-tweet-header{
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-tweet-footer{
+  width: 100%;
+  align-items: center;
+  display: flex;
+  border-top: solid;
+  justify-content: space-between;
+  padding: .5em;
+  
+}
+
+.article-tweet-footer-div{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .5em;
+}
+
+.fa-solid:hover{
+  color: goldenrod;
+}
+
+
+.article-tweet-div{
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.article-tweet-div-userphoto{
+  width: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.article-date-footer{
+  width: 100%;
+  display: flex;
+  font-size: small;
+  font-weight: bold;
+}
+
+
+
+/* .line-break{
+ 
+  background-color: gray;
+  height: 5px;
+}
+
+.line{
+  
+  background-color: gray;
+  height: 5px;
+
+} */
