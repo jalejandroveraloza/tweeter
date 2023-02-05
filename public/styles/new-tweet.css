@@ -116,10 +116,11 @@ section{
 }
 
 .article-tweet-div-userphoto{
-  width: 12%;
+  width: auto;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-left: .5em;
 }
 
 .article-date-footer{
@@ -129,6 +130,23 @@ section{
   font-weight: bold;
 }
 
+.error-empty-text{
+  display: flex;
+  justify-content: space-between;
+  color: red;
+  border: 2px solid red;
+  margin-top: 30px;
+  padding: .5em;
+}
+
+.error-long-text{
+  display: flex;
+  justify-content: space-between;
+  color: red;
+  border: 2px solid red;
+  margin-top: 30px;
+  padding: .5em;
+}
 
 
 /* .line-break{
