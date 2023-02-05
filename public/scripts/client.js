@@ -4,6 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function () {
+
+
   const data = [
     {
       "user": {
@@ -36,10 +38,11 @@ $(document).ready(function () {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
+    $('.tweet-container').empty();
     for (let tweet of tweets) {
-      console.log(tweet)
+      //console.log(tweet)
       const newtweets = createTweetElement(tweet);
-      $('.tweet-container').append(newtweets);
+      $('.tweet-container').prepend(newtweets);
     }
 
   }
@@ -55,7 +58,7 @@ $(document).ready(function () {
   <h4>${tweet.user.handle}</h4>
 </header>
   <div class="article-tweet-div">
-    <h3>${tweet.content.text}</h3>
+    <h3>${escape(tweet.content.text)}</h3>
     <!-- <h3>@texto</h3> -->
   </div>
   
@@ -65,7 +68,7 @@ $(document).ready(function () {
   <!-- <hr class="line-break"> -->
 
 <footer class="article-tweet-footer">
-  <span class="article-date-footer">${tweet.created_at}</span>
+  <span class="article-date-footer">${timeago.format(tweet.created_at)}</span>
   <div class="article-tweet-footer-div">
 
     <i class="fa-solid fa-flag"></i>
@@ -82,29 +85,51 @@ $(document).ready(function () {
     return $tweet;
   }
 
-  const postTweet = () => {
+  const loadTweets = function () {
     $.ajax({
-      url: "/tweets/",
-      type: "POST",
-      data: $(".new-tweet-form").serialize(),
-      dataType: 'json',
-      success: (data) => {
-        console.log("this request succeded", data)
-      },
-      error: (error) => {
-        console.log("an error ocurred, ", error)
-      }
-    })
-
+      url: "/tweets",
+      type: "GET",  
+    }).then(renderTweets)
   }
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  $('.error-empty-text').hide();
+  $('.error-long-text').hide();
 
 
   $('.new-tweet-form').submit(function (event) {
+   
     event.preventDefault();
-    postTweet();
+    const maxChars = 140;
+
+    const messageLength = $(this).find('.text-area').val().length;
+
+    $('.error-empty-text').slideUp(400);
+    $('.error-long-text').slideUp(400);
+
+    if(messageLength === 0){
+      //window.alert("Please type a message")
+      $('.error-empty-text').slideDown(400);
+    } 
+    else if(messageLength > maxChars){
+      //window.alert("Please type a shorter message")
+      $('.error-long-text').slideDown(400);
+    } 
+    else{
+    $.ajax({
+      url: "/tweets",
+      type: "POST",
+      data: $(".new-tweet-form").serialize(),   
+    }).then(loadTweets)
+  }
   })
 
-  
+  loadTweets();
 
-  renderTweets(data);
+  
 });
