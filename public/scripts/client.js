@@ -38,12 +38,14 @@ $(document).ready(function () {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
+    
     $('.tweet-container').empty();
     for (let tweet of tweets) {
       //console.log(tweet)
       const newtweets = createTweetElement(tweet);
       $('.tweet-container').prepend(newtweets);
     }
+    
 
   }
 
@@ -126,6 +128,7 @@ $(document).ready(function () {
         type: "POST",
         data: $(".new-tweet-form").serialize(),
       }).then(loadTweets)
+      this.reset();//new line, clean the text box after posting
     }
   })
 
