@@ -16,3 +16,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+
+!["Screenshot of tweet pc version"](https://github.com/jalejandroveraloza/tweeter/blob/master/docs/tweet-pc-version.png?raw=true)
+!["Screenshot of tweet tablet version"](https://github.com/jalejandroveraloza/tweeter/blob/master/docs/tweet-tablet-version.png?raw=true)
+
+
